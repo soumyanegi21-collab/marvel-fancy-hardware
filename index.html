@@ -149,16 +149,138 @@ h2::after{content:"";display:block;width:56px;height:3px;margin-top:10px;border-
 .chips button:hover,.brands button:hover{box-shadow:0 0 22px rgba(181,98,58,.35)}
 .ctl{padding:18px;border:1px solid var(--line);border-radius:12px}
 @media(prefers-reduced-motion:reduce){.hero::before,.hero::after{animation:none}}
+
+/* editorial storefront */
+:root{--bg:#171614;--card:#24211e;--line:rgba(239,226,210,.18);--cream:#f4e9dc;--text:#ddd2c6;--muted:#aaa095;--copper:#c17b4a}
+html{scroll-padding-top:82px}
+body{background:#171614;color:var(--text)}
+nav{position:fixed;inset:0 0 auto;background:linear-gradient(180deg,rgba(15,13,12,.78),rgba(15,13,12,.2));border-bottom:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px)}
+nav .wrap{max-width:1420px;height:76px;padding:0 5vw}
+nav b{font-size:20px}
+nav div{gap:clamp(12px,2vw,28px);align-items:center}
+nav a{font-size:13px;letter-spacing:.02em;transition:color .2s}
+nav a:hover{color:#fff}
+nav a[href="#bulk"]{padding:11px 18px;border:1px solid rgba(244,233,220,.75);border-radius:2px}
+.hero{height:max(790px,100svh);min-height:790px;display:grid;align-items:center;isolation:isolate;overflow:hidden;padding:100px 0 250px;background:#211a15}
+.hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:-1;filter:saturate(.72) brightness(.58)}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(14,12,10,.58),rgba(14,12,10,.62) 48%,rgba(14,12,10,.9)),linear-gradient(90deg,rgba(14,12,10,.3),rgba(14,12,10,.08) 55%,rgba(14,12,10,.3))}
+.hero::after{content:none}
+.hero .wrap{position:relative;z-index:1;width:100%;max-width:none;display:flex;min-height:100%;flex-direction:column;justify-content:center;align-items:center;gap:0;text-align:center;padding:92px 24px 0}
+.hero .wrap>div:first-child{max-width:920px}
+.eyebrow{display:block;margin:0 0 22px;color:#e7b58e;font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase}
+.hero h1{max-width:900px;margin:0 auto;font-size:clamp(54px,7vw,96px);font-weight:400;line-height:.98;letter-spacing:-.065em;color:#fff;background:none;-webkit-text-fill-color:#fff;animation:rise .9s cubic-bezier(.2,.7,.2,1) backwards}
+.hero p{max-width:560px;margin:24px auto 0;color:rgba(255,255,255,.83);font-size:clamp(15px,1.5vw,18px);line-height:1.7;text-shadow:0 1px 9px rgba(0,0,0,.85)}
+.eyebrow,.stats{text-shadow:0 1px 9px rgba(0,0,0,.85)}
+.hero .cta{justify-content:center;gap:12px;margin-top:32px}
+.hero .btn{min-width:165px;border-radius:2px;padding:15px 22px;background:#f4e9dc;color:#1c1713;box-shadow:none}
+.hero .btn:hover{background:#fff;box-shadow:none;transform:translateY(-2px)}
+.hero .btn.alt{background:transparent;color:#fff;border-color:rgba(255,255,255,.72)}
+.hero .btn.alt:hover{background:rgba(255,255,255,.12)}
+.stats{justify-content:center;gap:30px;margin-top:34px;color:rgba(255,255,255,.74);font-size:12px}
+.stats b{margin-bottom:2px;font-size:22px;color:#fff}
+.finish{position:absolute;z-index:1;left:5vw;bottom:32px;width:min(280px,calc(100% - 40px));padding:16px 18px;border:1px solid rgba(255,255,255,.26);border-radius:3px;background:rgba(25,22,20,.78);backdrop-filter:blur(18px);box-shadow:0 18px 48px rgba(0,0,0,.3);text-align:left}
+.finish h3{font-size:17px}.finish p{margin:4px 0 12px;font-size:12px}
+.handle{height:70px;border-radius:2px;background:linear-gradient(135deg,#5a5148,#262320)}
+.sw{margin-top:10px}
+.sw button{width:27px;height:27px}
+#fname{font-size:12px}
+section{padding:clamp(72px,9vw,132px) 0}
+section::before{display:none}
+.wrap{max-width:1280px}
+h2{font-size:clamp(36px,5.6vw,68px);letter-spacing:-.045em}
+h2::after{display:none}
+.sub{max-width:58ch;margin:12px 0 38px;color:var(--muted);font-size:15px;line-height:1.8}
+#brands{padding-top:76px}
+.brands{gap:10px}
+.brands button{border-radius:2px;background:transparent;font-family:Manrope,sans-serif;font-size:13px;letter-spacing:.05em}
+.gal{grid-template-columns:minmax(0,1.7fr) minmax(220px,.7fr);gap:20px}
+.gal figure{border:0;border-radius:2px;background:transparent}
+.gal figure img{height:min(70vh,680px);background:#211d19;object-fit:cover}
+.gal figcaption{padding:18px 0}
+.gal figcaption b{font-size:24px}
+#gth{gap:12px}
+#gth button{border:1px solid var(--line);border-radius:2px}
+#gth button[aria-pressed=true]{border-color:#e7b58e}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chips button{min-width:120px;flex:1 1 120px;border-radius:2px;padding:16px 10px;background:transparent;font-weight:500;transition:background .2s,border-color .2s}
+.chips button:hover,.chips button[aria-pressed=true]{background:#292522}
+.chips svg{width:25px;height:25px}
+.tools{grid-template-columns:2fr repeat(4,minmax(130px,1fr));gap:9px}
+input,select,textarea{border-radius:2px;background:#211f1c;border-color:var(--line)}
+.grid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.card{min-height:228px;border:1px solid var(--line);border-left:0;border-radius:2px;padding:22px;background:linear-gradient(145deg,#282522,#1f1d1a);transition:transform .3s,border-color .3s}
+.card:hover{transform:translateY(-5px);border-color:rgba(231,181,142,.55);box-shadow:0 16px 40px rgba(0,0,0,.2)}
+.card h3{font-size:21px}
+.price{font-size:17px}
+.btn{border-radius:2px;background:#c17b4a;box-shadow:none}
+.btn:hover{background:#d18b59;box-shadow:none}
+.btn.alt{border-radius:2px}
+dialog{border-radius:3px;background:#24211e}
+.try,.proj{gap:24px}
+.stage,.ctl,.proj{border:1px solid var(--line);border-radius:2px;background:#201e1b}
+.ctl{padding:22px}
+.steps div{border-radius:2px;background:#24211e}
+.why{gap:24px}
+.why div{border-left-width:1px;border-color:#c17b4a}
+.why b{font-size:22px}
+footer{border-color:var(--line)}
+.wa{border-radius:2px;box-shadow:0 8px 24px rgba(0,0,0,.28)}
+.rv{transform:translateY(28px)}
+@media(max-width:800px){
+ nav .wrap{height:68px;padding:0 18px;gap:16px}
+ nav b{font-size:17px}
+ nav .logo svg{width:34px;height:34px}
+ nav div{max-width:52vw;gap:15px;scrollbar-width:none}
+ nav div::-webkit-scrollbar{display:none}
+ nav div a{font-size:12px}
+ nav a[href="#bulk"]{padding:8px 12px}
+ .hero{height:auto;min-height:0;padding:100px 0 36px;display:flex;flex-direction:column;align-items:center}
+ .hero .wrap{min-height:0;flex:1;padding:68px 22px 0}
+ .hero h1{font-size:clamp(58px,13vw,94px)}
+ .hero .cta{gap:9px}
+ .hero .btn{min-width:0;padding:13px 16px}
+ .stats{gap:18px}
+ .stats b{font-size:19px}
+ .finish{position:relative;left:auto;bottom:auto;margin:30px auto 0;width:min(340px,calc(100% - 40px))}
+ .gal{grid-template-columns:1fr}
+ .gal figure img{height:55vh}
+ .tools{grid-template-columns:1fr 1fr}
+ .tools input{grid-column:1/-1}
+ .grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+}
+@media(max-width:480px){
+ nav .wrap{gap:10px}
+ nav .logo{gap:7px}
+ nav b{font-size:14px}
+ nav .logo small{font-size:7px}
+ nav div{max-width:48vw}
+ .hero{min-height:0}
+ .hero h1{font-size:clamp(54px,14vw,72px)}
+ .hero .cta{max-width:340px}
+ .hero .btn{flex:1 1 145px}
+ .stats{gap:14px}
+ .stats b{font-size:17px}
+ .stats div{font-size:10px}
+ .tools{grid-template-columns:1fr}
+ .tools input{grid-column:auto}
+ .grid{grid-template-columns:1fr}
+ .total{align-items:flex-start;flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){
+ .rv{opacity:1;transform:none}
+ .hero h1{animation:none}
+}
 </style>
 </head>
 <body id="top">
 <nav><div class="wrap"><a class="logo" href="#top"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9844f"/><stop offset="1" stop-color="#8b4a2b"/></linearGradient></defs><rect x="2" y="2" width="44" height="44" rx="11" fill="url(#lg1)"/><path d="M12 33V14l12 13 12-13v19" fill="none" stroke="#f2d3b8" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><rect x="11" y="38" width="26" height="3" rx="1.5" fill="#f2d3b8"/></svg><span><b>MARVEL</b><small>FANCY HARDWARE</small></span></a><div><a href="#tryon">Try on door</a><a href="#gallery">Showroom</a><a href="#catalog">Catalog</a><a href="#project">Project list</a><a href="#bulk">Bulk quote</a><a href="#track">Track order</a><a href="#visit">Visit</a></div></div></nav>
 
-<header class="hero"><div class="wrap">
+<header class="hero"><img class="hero-image" id="hero-image" alt="" aria-hidden="true"><div class="wrap">
 <div>
+<span class="eyebrow">Considered details. Beautifully finished spaces.</span>
 <h1>Hardware that finishes the room.</h1>
 <p>Digital locks, mortise handles, tower bolts, hinges and LED mirrors from Hettich, Godrej and more. Bhubaneswar's hardware store for over 20 years, now open online around the clock.</p>
-<div class="cta"><a class="btn" href="#catalog">Browse catalog</a><a class="btn alt" href="#tryon">Try it on your door</a><a class="btn alt" href="#bulk">Get a bulk quote</a></div>
+<div class="cta"><a class="btn" href="#catalog">Explore collection</a><a class="btn alt" href="#gallery">Visit our showroom</a></div>
 <div class="stats"><div><b>4.2 ★</b>449 Google reviews</div><div><b>20+</b>years in Bapuji Nagar</div><div><b>10+</b>premium brands</div></div>
 </div>
 <div class="finish">
@@ -358,7 +480,7 @@ cats.forEach(c=>{const b=document.createElement("button");b.innerHTML=`<svg view
 function show(i){$("#gimg").src=G[i].src;$("#gimg").alt=G[i].t;$("#gt").textContent=G[i].t;$("#gc").textContent=G[i].c;
  document.querySelectorAll("#gth button").forEach((x,k)=>x.setAttribute("aria-pressed",k==i))}
 G.forEach((g,i)=>{const b=document.createElement("button");b.innerHTML=`<img alt="${g.t}" src="${g.src}">`;b.onclick=()=>show(i);$("#gth").append(b)});
-show(0);$("#shop").src=G[0].src;
+show(0);$("#shop").src=G[0].src;$("#hero-image").src=G[0].src;
 $("#gimg").onclick=()=>{$("#lbi").src=$("#gimg").src;$("#lb").showModal()};$("#lbx").onclick=()=>$("#lb").close();
 
 /* try-on */
