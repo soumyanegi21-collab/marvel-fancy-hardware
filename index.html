@@ -162,10 +162,35 @@ nav a{font-size:13px;letter-spacing:.02em;transition:color .2s}
 nav a:hover{color:#fff}
 nav a[href="#bulk"]{padding:11px 18px;border:1px solid rgba(244,233,220,.75);border-radius:2px}
 .hero{height:max(790px,100svh);min-height:790px;display:grid;align-items:center;isolation:isolate;overflow:hidden;padding:100px 0 250px;background:#211a15}
-.hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:-1;filter:saturate(.72) brightness(.58)}
-.hero::before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(14,12,10,.58),rgba(14,12,10,.62) 48%,rgba(14,12,10,.9)),linear-gradient(90deg,rgba(14,12,10,.3),rgba(14,12,10,.08) 55%,rgba(14,12,10,.3))}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(16,14,13,.3),rgba(16,14,13,.06) 48%,rgba(16,14,13,.62)),radial-gradient(ellipse at 50% 48%,transparent 10%,rgba(10,11,15,.26) 78%)}
 .hero::after{content:none}
-.hero .wrap{position:relative;z-index:1;width:100%;max-width:none;display:flex;min-height:100%;flex-direction:column;justify-content:center;align-items:center;gap:0;text-align:center;padding:92px 24px 0}
+.hero-scene{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 50% 42%,rgba(101,64,45,.3),transparent 30%),radial-gradient(ellipse at 50% 58%,#24201d 0,#171716 62%,#121315 100%)}
+.scene-grid{position:absolute;left:-20%;right:-20%;bottom:-36%;height:75%;opacity:.38;transform:perspective(340px) rotateX(60deg);transform-origin:50% 0;background-image:linear-gradient(rgba(227,172,128,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(227,172,128,.2) 1px,transparent 1px);background-size:62px 62px;mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 75%,transparent)}
+.scene-grid::after{content:"";position:absolute;inset:-100% 0;background:linear-gradient(transparent 45%,rgba(215,142,92,.42),transparent 55%);animation:grid-scan 7s linear infinite}
+.scene-halo{position:absolute;width:min(66vw,850px);aspect-ratio:1;left:72%;top:45%;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(199,116,70,.22),rgba(177,133,107,.08) 38%,transparent 68%);filter:blur(9px);animation:halo-breathe 6s ease-in-out infinite alternate}
+.scene-orbit{position:absolute;left:70%;top:45%;width:min(74vw,960px);height:min(31vw,400px);border:1px solid rgba(229,184,150,.25);border-radius:50%;transform:translate(-50%,-50%) rotate(-17deg);box-shadow:0 0 32px rgba(197,122,75,.12),inset 0 0 26px rgba(197,122,75,.06);animation:orbit-turn 24s linear infinite}
+.scene-orbit::before,.scene-orbit::after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:#ffd0a5;box-shadow:0 0 12px 3px rgba(255,175,117,.75)}
+.scene-orbit::before{left:17%;top:16%}.scene-orbit::after{right:13%;bottom:12%;width:4px;height:4px}
+.scene-orbit.orbit-inner{left:70%;width:min(57vw,740px);height:min(22vw,285px);border-color:rgba(170,190,205,.2);transform:translate(-50%,-50%) rotate(26deg);animation-direction:reverse;animation-duration:32s}
+.scene-orbit.orbit-inner::before{left:76%;top:5%;width:4px;height:4px;background:#b7d8ed;box-shadow:0 0 12px 3px rgba(133,190,228,.75)}
+.scene-orbit.orbit-inner::after{right:66%;bottom:-2%;width:6px;height:6px;background:#e5a779}
+.scene-device{position:absolute;left:83%;top:45%;width:156px;height:330px;transform:translate(-50%,-50%);border:1px solid rgba(235,213,195,.82);border-radius:22px;background:linear-gradient(110deg,#171819,#55504a 17%,#202123 36%,#39302a 76%,#101214);box-shadow:0 0 0 7px rgba(218,180,151,.06),0 0 65px rgba(217,133,82,.36),0 34px 90px rgba(0,0,0,.65),inset 2px 0 8px rgba(255,255,255,.32);filter:brightness(1.2);animation:device-float 5.4s ease-in-out infinite}
+.scene-device::before{content:"";position:absolute;inset:10px;border:1px solid rgba(235,213,195,.11);border-radius:15px}
+.device-screen{position:absolute;top:32px;left:50%;width:82px;height:50px;transform:translateX(-50%);border:1px solid rgba(151,200,219,.36);border-radius:7px;background:linear-gradient(145deg,rgba(22,40,47,.95),rgba(12,19,24,.9));box-shadow:0 0 20px rgba(109,183,213,.2),inset 0 0 16px rgba(116,189,214,.14)}
+.device-screen::before{content:"";position:absolute;left:50%;top:50%;width:23px;height:23px;transform:translate(-50%,-50%);border:1px solid rgba(163,218,229,.78);border-radius:50%;box-shadow:0 0 12px rgba(113,208,222,.7),inset 0 0 8px rgba(113,208,222,.42)}
+.device-screen::after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;transform:translate(-50%,-50%);border-radius:50%;background:#b6f1ed;box-shadow:0 0 9px 3px rgba(110,218,218,.7)}
+.device-keypad{position:absolute;top:101px;left:50%;display:grid;width:62px;grid-template-columns:repeat(3,1fr);gap:8px;transform:translateX(-50%)}
+.device-keypad i{width:7px;height:7px;border:1px solid rgba(220,204,191,.42);border-radius:50%;box-shadow:0 0 6px rgba(225,172,132,.14)}
+.device-keypad i:nth-child(5){background:#d8aa82;box-shadow:0 0 9px rgba(221,158,111,.65)}
+.device-lever{position:absolute;top:59%;left:50%;width:122px;height:17px;transform:translateY(-50%);border-radius:12px;background:linear-gradient(180deg,#f0d3b4 0,#b99b7f 22%,#725d4d 52%,#d9b795 82%,#604f43 100%);box-shadow:0 5px 14px #080808,0 0 18px rgba(231,169,122,.23)}
+.device-lever::before{content:"";position:absolute;left:-10px;top:-8px;width:30px;height:33px;border-radius:50%;background:radial-gradient(circle at 38% 30%,#ead0b5,#9e8268 55%,#433931);box-shadow:0 0 0 1px rgba(245,219,192,.4)}
+.device-lever::after{content:"";position:absolute;right:10px;top:3px;width:8px;height:8px;border-radius:50%;background:#f2d6b5;box-shadow:0 0 7px rgba(255,212,168,.8)}
+.scene-caption{position:absolute;top:calc(45% + 205px);left:83%;transform:translateX(-50%);color:rgba(238,210,188,.7);font:600 9px Manrope,sans-serif;letter-spacing:.32em;text-transform:uppercase;white-space:nowrap}
+@keyframes orbit-turn{to{rotate:343deg}}
+@keyframes device-float{0%,100%{translate:0 0}50%{translate:0 -12px}}
+@keyframes halo-breathe{to{opacity:.55;scale:1.14}}
+@keyframes grid-scan{from{transform:translateY(-70%)}to{transform:translateY(100%)}}
+.hero .wrap{position:relative;z-index:2;width:100%;max-width:none;display:flex;min-height:100%;flex-direction:column;justify-content:center;align-items:center;gap:0;text-align:center;padding:92px 24px 0}
 .hero .wrap>div:first-child{max-width:920px}
 .eyebrow{display:block;margin:0 0 22px;color:#e7b58e;font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase}
 .hero h1{max-width:900px;margin:0 auto;font-size:clamp(54px,7vw,96px);font-weight:400;line-height:.98;letter-spacing:-.065em;color:#fff;background:none;-webkit-text-fill-color:#fff;animation:rise .9s cubic-bezier(.2,.7,.2,1) backwards}
@@ -176,6 +201,7 @@ nav a[href="#bulk"]{padding:11px 18px;border:1px solid rgba(244,233,220,.75);bor
 .hero .btn:hover{background:#fff;box-shadow:none;transform:translateY(-2px)}
 .hero .btn.alt{background:transparent;color:#fff;border-color:rgba(255,255,255,.72)}
 .hero .btn.alt:hover{background:rgba(255,255,255,.12)}
+.hero .eyebrow,.hero h1,.hero p,.hero .cta,.hero .stats{filter:drop-shadow(0 2px 14px rgba(0,0,0,.8))}
 .stats{justify-content:center;gap:30px;margin-top:34px;color:rgba(255,255,255,.74);font-size:12px}
 .stats b{margin-bottom:2px;font-size:22px;color:#fff}
 .finish{position:absolute;z-index:1;left:5vw;bottom:32px;width:min(280px,calc(100% - 40px));padding:16px 18px;border:1px solid rgba(255,255,255,.26);border-radius:3px;background:rgba(25,22,20,.78);backdrop-filter:blur(18px);box-shadow:0 18px 48px rgba(0,0,0,.3);text-align:left}
@@ -237,6 +263,21 @@ footer{border-color:var(--line)}
  .hero{height:auto;min-height:0;padding:100px 0 36px;display:flex;flex-direction:column;align-items:center}
  .hero .wrap{min-height:0;flex:1;padding:68px 22px 0}
  .hero h1{font-size:clamp(58px,13vw,94px)}
+ .scene-device{width:112px;height:238px;border-radius:17px}
+ .scene-device::before{inset:7px;border-radius:12px}
+ .device-screen{top:24px;width:60px;height:38px}
+ .device-screen::before{width:18px;height:18px}
+ .device-keypad{top:76px;width:48px;gap:6px}
+ .device-keypad i{width:6px;height:6px}
+ .device-lever{width:88px;height:13px}
+ .device-lever::before{left:-7px;top:-6px;width:24px;height:25px}
+ .device-lever::after{right:7px;top:3px;width:6px;height:6px}
+ .scene-orbit{left:50%;width:110vw;height:44vw;top:36%}
+ .scene-orbit.orbit-inner{left:50%;width:88vw;height:33vw;top:36%}
+ .scene-device{left:50%;top:36%}
+ .scene-caption{left:50%;top:calc(36% + 152px);font-size:7px;letter-spacing:.2em}
+ .scene-halo{left:50%;top:36%;width:95vw}
+ .scene-grid{bottom:-20%;height:55%;background-size:42px 42px}
  .hero .cta{gap:9px}
  .hero .btn{min-width:0;padding:13px 16px}
  .stats{gap:18px}
@@ -269,13 +310,14 @@ footer{border-color:var(--line)}
 @media(prefers-reduced-motion:reduce){
  .rv{opacity:1;transform:none}
  .hero h1{animation:none}
+ .scene-grid::after,.scene-halo,.scene-orbit,.scene-device{animation:none}
 }
 </style>
 </head>
 <body id="top">
 <nav><div class="wrap"><a class="logo" href="#top"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9844f"/><stop offset="1" stop-color="#8b4a2b"/></linearGradient></defs><rect x="2" y="2" width="44" height="44" rx="11" fill="url(#lg1)"/><path d="M12 33V14l12 13 12-13v19" fill="none" stroke="#f2d3b8" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><rect x="11" y="38" width="26" height="3" rx="1.5" fill="#f2d3b8"/></svg><span><b>MARVEL</b><small>FANCY HARDWARE</small></span></a><div><a href="#tryon">Try on door</a><a href="#gallery">Showroom</a><a href="#catalog">Catalog</a><a href="#project">Project list</a><a href="#bulk">Bulk quote</a><a href="#track">Track order</a><a href="#visit">Visit</a></div></div></nav>
 
-<header class="hero"><img class="hero-image" id="hero-image" alt="" aria-hidden="true"><div class="wrap">
+<header class="hero"><div class="hero-scene" aria-hidden="true"><div class="scene-grid"></div><div class="scene-halo"></div><div class="scene-orbit"></div><div class="scene-orbit orbit-inner"></div><div class="scene-device"><div class="device-screen"></div><div class="device-keypad"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="device-lever"></div></div><div class="scene-caption">Precision hardware · engineered for the future</div></div><div class="wrap">
 <div>
 <span class="eyebrow">Considered details. Beautifully finished spaces.</span>
 <h1>Hardware that finishes the room.</h1>
@@ -480,7 +522,7 @@ cats.forEach(c=>{const b=document.createElement("button");b.innerHTML=`<svg view
 function show(i){$("#gimg").src=G[i].src;$("#gimg").alt=G[i].t;$("#gt").textContent=G[i].t;$("#gc").textContent=G[i].c;
  document.querySelectorAll("#gth button").forEach((x,k)=>x.setAttribute("aria-pressed",k==i))}
 G.forEach((g,i)=>{const b=document.createElement("button");b.innerHTML=`<img alt="${g.t}" src="${g.src}">`;b.onclick=()=>show(i);$("#gth").append(b)});
-show(0);$("#shop").src=G[0].src;$("#hero-image").src=G[0].src;
+show(0);$("#shop").src=G[0].src;
 $("#gimg").onclick=()=>{$("#lbi").src=$("#gimg").src;$("#lb").showModal()};$("#lbx").onclick=()=>$("#lb").close();
 
 /* try-on */
